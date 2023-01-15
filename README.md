@@ -1,3 +1,23 @@
-# andreygubarev.routeros
+# Collection `andreygubarev.routeros`
 
 Collection for idempotent management of MikroTik RouterOS devices, including upsert of configs.
+
+# Role `andreygubarev.routeros.api_find_and_upsert`
+
+Role for idempotently finding and upserting Mikrotik RouterOS configurations using the RouterOS API.
+
+```yaml
+---
+- hosts: routeros
+  tasks:
+    - name: Ensure IP pool
+      ansible.builtin.include_role: { name: andreygubarev.routeros.api_find_and_upsert }
+      vars:
+        path: ip pool
+        find:
+          name: dhcp
+        values:
+          name: dhcp
+          ranges: 10.10.0.2-10.10.0.254
+```
+
