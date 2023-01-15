@@ -28,3 +28,4 @@
     find:
       .id: '{{ resource.msg[0][".id"] }}'
     values: '{{ values }}'
+  when: resource.msg | length == 1
