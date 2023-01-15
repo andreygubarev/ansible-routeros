@@ -1,6 +1,6 @@
 ---
 - name: Prepare facts
-  set_fact:
+  ansible.builtin.set_fact:
     config: '/{{ path }} [find {{ find.items() | map("join", "=") | community.routeros.join }}]'
 
 - name: Get config '{{ config }}'
