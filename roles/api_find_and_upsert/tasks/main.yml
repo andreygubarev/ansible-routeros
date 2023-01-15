@@ -16,14 +16,14 @@
     that:
       - resource.msg | length < 2
 
-- name: Create config '{{ config }}' # noqa args[module]
+- name: Create config '{{ config }}'  # noqa args[module]
   community.routeros.api:
     path: '{{ path }}'
     add: '{{ values.items() | map("join", "=") | community.routeros.join }}'
   when: resource.msg | length == 0
 
 - name: Update config '{{ config }}'
-  community.routeros.api_find_and_modify: # noqa args[module]
+  community.routeros.api_find_and_modify:  # noqa args[module]
     path: '{{ path }}'
     find:
       .id: '{{ resource.msg[0][".id"] }}'
