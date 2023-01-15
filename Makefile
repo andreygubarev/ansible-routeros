@@ -7,12 +7,12 @@ all: .cache/venv .cache/ansible ## Create local environment
 
 .PHONY: clean
 clean: ## Remove cache
-	rm -rf .cache
+	rm -rf .cache *.tar.gz
 
 .PHONY: build
 build: ## Build collection archive
 	ansible-lint
-	ansible-galaxy collection build
+	ansible-galaxy collection build --force
 
 .cache/venv:
 	python3 -m venv .cache/venv
