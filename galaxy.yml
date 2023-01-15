@@ -16,8 +16,7 @@ tags:
   - networking
 
 dependencies:
-  - name: community.routeros
-    version: 2.6.0
+  community.routeros: ">=2.6.0,<3.0.0"
 
 repository: https://github.com/andreygubarev/ansible-routeros
 documentation: https://github.com/andreygubarev/ansible-routeros
