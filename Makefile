@@ -14,6 +14,10 @@ build: ## Build collection archive
 	ansible-lint
 	ansible-galaxy collection build --force
 
+.PHONY: release
+release: build ## Release collection
+	open https://galaxy.ansible.com/my-content/namespaces
+
 .cache/venv:
 	python3 -m venv .cache/venv
 	.cache/venv/bin/python3 -m pip install -U pip setuptools wheel
