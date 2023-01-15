@@ -1,3 +1,3 @@
-# Ansible Collection - andreygubarev.routeros
+# andreygubarev.routeros
 
-Documentation for the collection.
+Collection for idempotent management of MikroTik RouterOS devices, including upsert of configs.
