@@ -24,4 +24,8 @@ documentation: https://github.com/andreygubarev/ansible-routeros
 homepage: https://github.com/andreygubarev/ansible-routeros
 issues: https://github.com/andreygubarev/ansible-routeros/issues
 
-build_ignore: []
+build_ignore:
+  - Makefile
+  - .cache
+  - .git
+  - .gitignore
