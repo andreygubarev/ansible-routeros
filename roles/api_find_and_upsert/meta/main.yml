@@ -8,9 +8,9 @@ galaxy_info:
   min_ansible_version: 7.0
 
   platforms:
-  - name: RouterOS
-    versions:
-    - all
+    - name: RouterOS
+      versions:
+        - all
 
   galaxy_tags:
     - routeros
