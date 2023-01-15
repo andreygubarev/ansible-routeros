@@ -10,7 +10,7 @@ Role for idempotently finding and upserting Mikrotik RouterOS configurations usi
 ---
 - hosts: routeros
   tasks:
-    - name: Ensure IP pool
+    - name: Upsert IP pool
       ansible.builtin.include_role: { name: andreygubarev.routeros.api_find_and_upsert }
       vars:
         path: ip pool
