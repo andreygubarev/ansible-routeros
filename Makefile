@@ -9,6 +9,11 @@ all: .cache/venv .cache/ansible ## Create local environment
 clean: ## Remove cache
 	rm -rf .cache
 
+.PHONY: build
+build: ## Build collection archive
+	ansible-lint
+	ansible-galaxy collection build
+
 .cache/venv:
 	python3 -m venv .cache/venv
 	.cache/venv/bin/python3 -m pip install -U pip setuptools wheel

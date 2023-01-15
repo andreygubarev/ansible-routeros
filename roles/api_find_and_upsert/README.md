@@ -6,26 +6,49 @@ Role for idempotently finding and upserting Mikrotik RouterOS configurations usi
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+This role requires `librouteros` version `3.0.0` to `4.0.0` python package to be installed, but only version `3.2.1` has been tested.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```yaml
+# requirements.yml
+---
+collections:
+  - name: andreygubarev.routeros
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+# inventory/group_vars/routeros.yml
+---
+ansible_connection: ansible.netcommon.network_cli
+ansible_network_os: community.network.routeros
+
+# inventory/host_vars/mikrotik.yml
+---
+routeros_defaults:
+  hostname:
+  username:
+  password:
+  tls: false
+
+# playboook.yml
+---
+- name: RouterOS
+  hosts: mikrotik
+  gather_facts: false
+  module_defaults:
+    community.routeros.api: "{{ routeros_defaults }}"
+    community.routeros.api_find_and_modify: "{{ routeros_defaults }}"
+  tasks:
+    - name: Ensure IP pool
+      ansible.builtin.include_role: { name: andreygubarev.routeros.api_find_and_upsert }
+      vars:
+        path: ip pool
+        find:
+          name: dhcp
+        values:
+          name: dhcp
+          ranges: 10.10.0.2-10.10.0.254
+```
 
 License
 -------
