@@ -2,6 +2,14 @@
 
 Collection for idempotent management of MikroTik RouterOS devices, including upsert of configs.
 
+## Installation
+
+To install this collection use the `ansible-galaxy` command-line tool:
+
+```sh
+ansible-galaxy collection install andreygubarev.routeros
+```
+
 ## `andreygubarev.routeros.api_find_and_upsert`
 
 Role for idempotently finding and upserting Mikrotik RouterOS configurations using the RouterOS API.
