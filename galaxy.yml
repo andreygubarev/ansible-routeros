@@ -5,7 +5,7 @@ version: 0.1.2
 readme: README.md
 
 authors:
-- Andrey Gubarev <andrey@andreygubarev.com> (andreygubarev.com)
+  - Andrey Gubarev <andrey@andreygubarev.com> (andreygubarev.com)
 
 description: Collection for idempotent management of MikroTik RouterOS devices, including upsert of configs.
 license_file: LICENSE
