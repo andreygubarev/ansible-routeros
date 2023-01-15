@@ -39,7 +39,7 @@ routeros_defaults:
     community.routeros.api: "{{ routeros_defaults }}"
     community.routeros.api_find_and_modify: "{{ routeros_defaults }}"
   tasks:
-    - name: Ensure IP pool
+    - name: Upsert IP pool
       ansible.builtin.include_role: { name: andreygubarev.routeros.api_find_and_upsert }
       vars:
         path: ip pool
@@ -53,4 +53,4 @@ routeros_defaults:
 License
 -------
 
-MIT
+[MIT](LICENSE)
