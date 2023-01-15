@@ -1,8 +1,8 @@
-# Collection `andreygubarev.routeros`
+# `andreygubarev.routeros`
 
 Collection for idempotent management of MikroTik RouterOS devices, including upsert of configs.
 
-# Role `andreygubarev.routeros.api_find_and_upsert`
+## `andreygubarev.routeros.api_find_and_upsert`
 
 Role for idempotently finding and upserting Mikrotik RouterOS configurations using the RouterOS API.
 
@@ -21,3 +21,4 @@ Role for idempotently finding and upserting Mikrotik RouterOS configurations usi
           ranges: 10.10.0.2-10.10.0.254
 ```
 
+For full documentation and usage instructions, please refer to the [role documentation](roles/api_find_and_upsert/README.md).
