@@ -1,0 +1,30 @@
+---
+- name: Prepare facts
+  set_fact:
+    config: '/{{ path }} [find {{ find.items() | map("join", "=") | community.routeros.join }}]'
+
+- name: Get config '{{ config }}'
+  community.routeros.api:
+    path: '{{ path }}'
+    extended_query:
+      attributes: '{{ [".id"] + find.keys() | list }}'
+      where: '{{ find | dict2items(key_name="attribute", value_name="value") | map("combine", {"is": "=="}) }}'
+  register: resource
+
+- name: Verify config '{{ config }}'
+  ansible.builtin.assert:
+    that:
+      - resource.msg | length < 2
+
+- name: Create config '{{ config }}'
+  community.routeros.api:
+    path: '{{ path }}'
+    add: '{{ values.items() | map("join", "=") | community.routeros.join }}'
+  when: resource.msg | length == 0
+
+- name: Update config '{{ config }}'
+  community.routeros.api_find_and_modify:
+    path: '{{ path }}'
+    find:
+      .id: '{{ resource.msg[0][".id"] }}'
+    values: '{{ values }}'
