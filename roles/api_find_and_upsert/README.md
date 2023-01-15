@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Role for idempotently finding and upserting Mikrotik RouterOS configurations using the RouterOS API.
 
 Requirements
 ------------
