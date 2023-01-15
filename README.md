@@ -21,4 +21,4 @@ Role for idempotently finding and upserting Mikrotik RouterOS configurations usi
           ranges: 10.10.0.2-10.10.0.254
 ```
 
-For full documentation and usage instructions, please refer to the [role documentation](roles/api_find_and_upsert/README.md).
+For full documentation and usage instructions, please refer to the [role documentation](https://github.com/andreygubarev/ansible-routeros/blob/main/roles/api_find_and_upsert/README.md).
